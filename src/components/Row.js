@@ -20,8 +20,14 @@ const Row = ({isLargeRow, title, id, fetchUrl}) => {
     <section className='row'> 
       <h2>{title}</h2>
       <div className='slider'>
-        <div className="slider__arrow-left">
-          <span className='arrow'>{"<"}</span>
+        <div className="slider__arrow-left"
+          // 그냥 div 눌러도 되게 바꿔버렸슴당.ㅎㅎ
+          onClick={()=>{
+            // 포스터 하나하나마다 고유의 아이디가 있음.
+            document.getElementById(id).scrollLeft -= window.innerWidth - 80;
+          }}>
+          <span className='arrow'
+          >{"<"}</span>
         </div>
         <div id={id} className='row__posters'>
           {movies.map(movie => (
@@ -35,7 +41,10 @@ const Row = ({isLargeRow, title, id, fetchUrl}) => {
             />
           ))}
         </div>
-        <div className="slider__arrow-right">
+        <div className="slider__arrow-right"
+          onClick={()=>{
+            document.getElementById(id).scrollLeft += window.innerWidth - 80;
+          }}>
           <span className="arrow">
             {">"}
           </span>
