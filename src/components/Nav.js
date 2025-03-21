@@ -13,7 +13,6 @@ const Nav = () => {
         navigate(`/search?q=${e.target.value}`);
     }
 
-    
     useEffect(() => {
         window.addEventListener("scroll", () =>{
             if(window.scrollY > 50){
